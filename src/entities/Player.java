@@ -2,11 +2,13 @@ package entities;
 
 public class Player {
     
+    private int maxHealth;
     private int health;
     private int attack;
     private int gold;
 
     public Player() {
+        this.maxHealth = 100;
         this.health = 100;
         this.attack = 1;
         this.gold = 0;
@@ -35,7 +37,11 @@ public class Player {
     //Increasers
 
     public void increaseHealth(int value) {
-        this.health += value;
+        if (value + this.health > this.maxHealth) {
+            this.health = maxHealth;
+        } else {
+            this.health += value;
+        }
     }
 
     public void increaseGold(int value) {
@@ -53,7 +59,11 @@ public class Player {
     }
 
     public void decreaseGold(int value) {
-        this.gold -= value;
+        if (this.gold < value) {
+            this.gold = 0;
+        } else {
+            this.gold -= value;
+        }
     }
 
     //Other methods

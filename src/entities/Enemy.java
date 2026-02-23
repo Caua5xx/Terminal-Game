@@ -79,6 +79,5 @@ public class Enemy {
 
     public void enemyAttackPlayer(Enemy enemy, Player player) {
         player.decreaseHealth(enemy.getAttack());
-        System.out.println("Inimigo:  " + enemy.getHealth());
     }
 }
